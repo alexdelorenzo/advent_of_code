@@ -1,7 +1,6 @@
 from typing import Generator
 
-
-## A day later: way to overcomplicate this problem
+# A day later: way to overcomplicate this problem
 
 HEX_CHAR_LEN = 4
 
