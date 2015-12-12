@@ -2,6 +2,9 @@ from hashlib import md5
 from itertools import count
 
 
+MATCH = "00000"
+
+
 def get_bytes(source: str) -> bytes:
     return bytes(source, 'utf-8')
 
@@ -10,7 +13,7 @@ def get_md5_hex(source: bytes) -> str:
     return md5(source).hexdigest()
 
 
-def match_beginning(source: str, match: str="000000") -> bool:
+def match_beginning(source: str, match: str=MATCH) -> bool:
     return source[:len(match)] == match
 
 

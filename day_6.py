@@ -15,8 +15,8 @@ def parse_line(source: str) -> dict:
 
 def parse_lines(source: str, lights: list):
     for line in source.split("\n"):
-        cmd = get_command_args(parse_line(line))
-        apply(*cmd, lights)
+        cmd_args = get_command_args(parse_line(line))
+        apply(*cmd_args, lights)
 
 
 def get_solution(source: str) -> int:
