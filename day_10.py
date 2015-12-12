@@ -8,6 +8,7 @@ ITERATIONS_P2 = 50
 
 def gen_chunks(input: str):
     # this generator right here is shameful
+    # should have used itertools.groupby()
 
     length = len(input)
 
@@ -16,21 +17,21 @@ def gen_chunks(input: str):
         return
 
     current_chr = input[0]
-    curr_str = current_chr
+    repeating_str = current_chr
 
     for index in range(1, length):
         letter = input[index]
 
         if letter == current_chr:
-            curr_str += letter
+            repeating_str += letter
 
         else:
-            yield curr_str
-            curr_str = letter
+            yield repeating_str
+            repeating_str = letter
 
         current_chr = letter
 
-    yield curr_str
+    yield repeating_str
 
 
 @lru_cache(maxsize=None)
