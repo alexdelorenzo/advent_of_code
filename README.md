@@ -18,3 +18,15 @@ Solutions to problems found on http://adventofcode.com
 | 11   | Solved | Solved |
 | 12   | Solved | Solved |
 | 13   | Solved | Solved |
+| 14   | -- | -- |
+| 15   | -- | -- |
+| 16   | -- | -- |
+| 17   | -- | -- |
+| 18   | -- | -- |
+| 19   | -- | -- |
+| 20   | -- | -- |
+| 21   | -- | -- |
+| 22   | -- | -- |
+| 23   | -- | -- |
+| 24   | -- | -- |
+| 25   | -- | -- |
