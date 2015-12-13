@@ -1,12 +1,13 @@
 BAD = {'i', 'o', 'l'}
-LOW, HIGH = ord('a'), ord('z')
+LOW, HIGH = 'a', 'z'
+MAX_CHARS = 8
 
 
 def length_and_case(input: str):
-    if len(input) != 8:
+    if len(input) != MAX_CHARS:
         return False
 
-    return all(LOW <= ord(char) <= HIGH
+    return all(LOW <= char <= HIGH
                for char in input)
 
 

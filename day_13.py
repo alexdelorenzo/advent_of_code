@@ -41,26 +41,15 @@ def parse(line: str) -> (str, str, int):
     return begin, dest, val
 
 
-def calculate_happiness(people: tuple, adj_mat: AdjMat) -> int:
-    total_happiness = 0
+def calculate_happiness(begin: str, dest: str, adj_mat: AdjMat) -> int:
+    return adj_mat[begin][dest] + adj_mat[dest][begin]
 
-    for index in range(-1, len(people) - 1):
-        begin, dest = people[index], people[index + 1]
-        happiness = adj_mat[begin][dest] + adj_mat[dest][begin]
-        total_happiness += happiness
 
-    return total_happiness
+def calculate_total_happiness(people: tuple, adj_mat: AdjMat) -> int:
+    return sum(calculate_happiness(people[index], people[index + 1], adj_mat)
+               for index in range(-1, len(people) - 1))
 
 
 def find_permutation(adj_mat: AdjMat) -> int:
-    perms = permutations(adj_mat)
-    perm = next(perms)
-    high_happiness = calculate_happiness(perm, adj_mat)
-
-    for perm in perms:
-        happiness = calculate_happiness(perm, adj_mat)
-
-        if happiness > high_happiness:
-            high_happiness = happiness
-
-    return high_happiness
+    return max(calculate_total_happiness(perm, adj_mat)
+               for perm in permutations(adj_mat))
