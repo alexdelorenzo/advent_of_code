@@ -1,7 +1,7 @@
 from collections import defaultdict
 from functools import partial
 from types import FunctionType
-from typing import Generator, Tuple, Dict
+from typing import Generator, Tuple, Dict, Iterable
 from itertools import permutations
 from operator import gt, lt
 
@@ -69,7 +69,7 @@ def calculate_dist(cities: tuple, adj_mat: AdjMat) -> int:
     return total_dist
 
 
-def find_permutation(adj_mat: AdjMat, op: FunctionType=lt) -> Tuple[Tuple[str], int]:
+def find_permutation(adj_mat: AdjMat, op: FunctionType=lt) -> Tuple[Iterable[str], int]:
     perms = permutations(adj_mat)
     short_perm = next(perms)
     short_dist = calculate_dist(short_perm, adj_mat)

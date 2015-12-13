@@ -6,7 +6,7 @@ from typing import Dict
 AdjMat = Dict[str, Dict[str, int]]
 
 
-def get_adj_map(source: str) -> AdjMat:
+def get_adj_mat(source: str) -> AdjMat:
     adj_mat = defaultdict(dict)
 
     for line in source.split('\n'):
@@ -17,17 +17,17 @@ def get_adj_map(source: str) -> AdjMat:
 
 
 def solve(source: str) -> int:
-    return find_permutation(get_adj_map(source))
+    return find_permutation(get_adj_mat(source))
 
 
 def solve_pt2(source: str) -> int:
-    adj_map = get_adj_map(source)
+    adj_mat = get_adj_mat(source)
 
-    for key, val in adj_map.copy().items():
-        adj_map[key]["Me"] = 0
-        adj_map["Me"][key] = 0
+    for key, val in adj_mat.copy().items():
+        adj_mat[key]["Me"] = 0
+        adj_mat["Me"][key] = 0
 
-    return find_permutation(adj_map)
+    return find_permutation(adj_mat)
 
 
 def parse(line: str) -> (str, str, int):

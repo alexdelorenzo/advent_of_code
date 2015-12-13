@@ -11,6 +11,7 @@ def parse_lines(source: str) -> Generator[str, None, None]:
 
 
 def parse_line(line: str) -> int:
+    line = line.strip('"')
     line = replace_simple_escapes(line)
     line = find_replace_hex(line)
 
@@ -18,7 +19,6 @@ def parse_line(line: str) -> int:
 
 
 def replace_simple_escapes(line: str) -> str:
-    line = line.strip('"')
     line = line.replace('\"', '"')
     line = line.replace("\'", "'")
     line = line.replace("\\", "/") # let's not mess with further parsing
@@ -32,13 +32,11 @@ def hex_index(line: str, index: int=0) -> int:
 
 def find_replace_hex(line: str) -> str:
     index = 0
-    length = len(line)
     h_index = hex_index(line, index)
 
     while h_index != -1:
         escaped_hex = line[h_index:HEX_CHAR_LEN]
-        line.replace(escaped_hex, str(escaped_hex))
+        line = line.replace(escaped_hex, str(escaped_hex))
         h_index = hex_index(line, index)
-        print(h_index)
 
     return line

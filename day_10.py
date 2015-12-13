@@ -6,21 +6,21 @@ ITERATIONS = 40
 ITERATIONS_P2 = 50
 
 
-def gen_chunks(input: str):
+def gen_chunks(source: str):
     # this generator right here is shameful
     # should have used itertools.groupby()
 
-    length = len(input)
+    length = len(source)
 
     if length == 1:
-        yield input[0]
+        yield source[0]
         return
 
-    current_chr = input[0]
+    current_chr = source[0]
     repeating_str = current_chr
 
     for index in range(1, length):
-        letter = input[index]
+        letter = source[index]
 
         if letter == current_chr:
             repeating_str += letter
@@ -55,8 +55,8 @@ def look_and_say(start: str, iterations: int=ITERATIONS) -> str:
     return string
 
 
-def solve(input: str, iterations=ITERATIONS) -> int:
-    return len(look_and_say(input))
+def solve(source: str, iterations=ITERATIONS) -> int:
+    return len(look_and_say(source))
 
 
 solve_p2 = partial(solve, iterations=ITERATIONS_P2)
