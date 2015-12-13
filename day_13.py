@@ -33,6 +33,7 @@ def solve_pt2(source: str) -> int:
 def parse(line: str) -> (str, str, int):
     begin_val_str, dest = line.split(" happiness units by sitting next to ")
     split_at = "gain " if "gain" in line else "lose "
+
     begin, val = begin_val_str.split(" would " + split_at)
     dest = dest[:-1]
     val = int(val) if "gain" in line else - int(val)
@@ -51,7 +52,7 @@ def calculate_happiness(people: tuple, adj_mat: AdjMat) -> int:
     return total_happiness
 
 
-def find_permutation(adj_mat: AdjMat):
+def find_permutation(adj_mat: AdjMat) -> int:
     perms = permutations(adj_mat)
     perm = next(perms)
     high_happiness = calculate_happiness(perm, adj_mat)
