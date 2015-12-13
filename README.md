@@ -3,6 +3,7 @@
 Solutions to problems found on http://adventofcode.com
 
 
+
 | Day | Pt1    | Pt2    |
 |-----|--------|--------|
 | 1   | Solved | Solved |
